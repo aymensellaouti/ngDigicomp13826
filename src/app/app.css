@@ -1,0 +1,18 @@
+
+/* selecteurs  */
+
+/* a qui je l'applique */
+p {
+  /* style */
+  color: red;
+}
+/* applique ca à tout élément qui a une classe p */
+.p {
+color: blue;
+}
+/* applique ca à l'élément qui a un id monId */
+#monId {
+color: green;
+}
+
+
