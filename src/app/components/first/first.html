@@ -1,6 +1,11 @@
 <!-- D'orénavant hidden doit dépendre de isHidden -->
-<p [hidden]="isHidden">Cc {{ name }}</p>
+<p [style.color]="color" [hidden]="isHidden">Cc {{ name }}</p>
 
-<div (click)="showHide()" class="alert alert-success">
+<input
+  #myInput
+  (change)="changeMessage(myInput.value)"
+  type="text" class="form-control">
+<p>Le contenu de l'input est : {{ message }}</p>
+<div style="color: blue;" (click)="showHide()" class="alert alert-success">
   <app-second/>
 </div>
