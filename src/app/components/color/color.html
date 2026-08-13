@@ -1,5 +1,5 @@
-<div>Exo color</div>
-<input type="text" class="form-controm">
-<button class="btn btn-danger">
+<div [style.backgroundColor]="color">Exo color</div>
+<input (change)="changeColor(inputColor)" #inputColor type="text" class="form-control">
+<button (click)="reset()" class="btn btn-danger">
   reset
 </button>
