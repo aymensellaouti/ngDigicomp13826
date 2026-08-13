@@ -10,7 +10,10 @@ export class Counter {
   counter = signal(0);
 
   increment() {
-    this.counter.update(count => count + 1)
+    this.counter.update(count => {
+      // Logique métier
+      return count + 1;
+  })
   }
 
   reset() {
