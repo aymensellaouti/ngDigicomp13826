@@ -1,5 +1,6 @@
-<p>first works!</p>
+<!-- D'orénavant hidden doit dépendre de isHidden -->
+<p [hidden]="isHidden">Cc {{ name }}</p>
 
-<div class="alert alert-success">
+<div (click)="showHide()" class="alert alert-success">
   <app-second/>
 </div>
