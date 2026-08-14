@@ -1,5 +1,17 @@
-<div [style.backgroundColor]="color">Exo color</div>
+<!-- A partir d'angular 19 on passe à Style -->
+<div
+  [ngStyle]="{
+    backgroundColor: color,
+    color: bgc,
+    fontFamily: font,
+    fontSize: size + 'px'
+  }"
+  >
+Exo color</div>
 <input (change)="changeColor(inputColor)" #inputColor type="text" class="form-control">
+
+
+<!-- Quand le user clique sur le boutton appelle reset -->
 <button (click)="reset()" class="btn btn-danger">
   reset
 </button>
