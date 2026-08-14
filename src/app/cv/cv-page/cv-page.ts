@@ -7,10 +7,11 @@ import { LoggerService } from '../../services/logger';
 import { SayHelloService } from '../../services/sayHello.service';
 import { CvService } from '../services/cv-service';
 import { ToastrService } from 'ngx-toastr';
+import { EmbaucheComponent } from "../embauche/embauche.component";
 
 @Component({
   selector: 'app-cv-page',
-  imports: [CvsList, CvCard, DatePipe, UpperCasePipe, CurrencyPipe],
+  imports: [CvsList, CvCard, DatePipe, UpperCasePipe, CurrencyPipe, EmbaucheComponent],
   templateUrl: './cv-page.html',
   styleUrl: './cv-page.css',
 })
