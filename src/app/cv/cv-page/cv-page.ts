@@ -6,6 +6,7 @@ import { CurrencyPipe, DatePipe, UpperCasePipe } from '@angular/common';
 import { LoggerService } from '../../services/logger';
 import { SayHelloService } from '../../services/sayHello.service';
 import { CvService } from '../services/cv-service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-cv-page',
@@ -20,6 +21,7 @@ export class CvPage {
   // loggerService = new LoggerService();
   sayHelloService = inject(SayHelloService);
   cvService = inject(CvService);
+  toastr = inject(ToastrService);
   cvs = this.cvService.getCvs();
   selectedCv = this.cvService.getSelectedCv();
 
@@ -30,5 +32,6 @@ export class CvPage {
   ) {
     this.loggerService.log('cc je suis le CvPageComponent');
     this.sayHelloService.hello();
+    this.toastr.info("Bien venu dans notre CvTech :)");
   }
 }
