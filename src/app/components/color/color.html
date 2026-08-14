@@ -8,12 +8,12 @@
   }"
   >
 Exo color</div>
-<input (change)="changeColor(inputColor)" #inputColor type="text" class="form-control">
+<input appRainbow (change)="changeColor(inputColor)" #inputColor type="text" class="form-control">
 
 
 <!-- Quand le user clique sur le boutton appelle reset -->
-<button (click)="reset()" class="btn btn-danger">
+<button appRainbow (click)="reset()" class="btn btn-danger">
   reset
 </button>
 
-<p appHighlight>cc</p>
+<p appRainbow appHighlight>cc</p>
