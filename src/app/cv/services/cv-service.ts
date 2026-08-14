@@ -13,7 +13,7 @@ export class CvService {
   ]);
 
   getCvs() {
-    return this.cvs.asReadonly()
+    return this.cvs.asReadonly();
   }
 
   /**
@@ -31,5 +31,31 @@ export class CvService {
    */
   selectCv(cv: Cv) {
     this.selectedCv.set(cv);
+  }
+
+  /**
+   *
+   * Cherche un cv avec son id dans lai liste fictive de cvs
+   *
+   * @param id
+   * @returns Cv | null
+   */
+  findCvById(id: number): Cv | null {
+    return this.cvs().find((cv) => cv.id == id) ?? null;
+  }
+
+  /**
+   *
+   * Supprime un cv s'il le trouve
+   *
+   * @param cv : Cv
+   * @returns boolean
+   */
+  deleteCv(cv: Cv): boolean {
+    const oldTodosLength = this.cvs().length;
+    this.cvs.update((cvs) => {
+      return cvs.filter((actualCv) => actualCv != cv);
+    });
+    return oldTodosLength != this.cvs().length;
   }
 }
