@@ -3,6 +3,7 @@ import { First } from './components/first/first';
 import { CvPage } from './cv/cv-page/cv-page';
 import { TodoComponent } from './todo/todo/todo.component';
 import { MiniWordComponent } from './directives/mini-word/mini-word.component';
+import { DetailsCvComponent } from './cv/details-cv/details-cv.component';
 
 export const routes: Routes = [
   {
@@ -12,6 +13,8 @@ export const routes: Routes = [
     component: First
   },
   { path: 'cv', component: CvPage},
+  // avec : devant le id on indique que id est variable
+  { path: 'cv/:id', component: DetailsCvComponent},
   { path: 'todo', component: TodoComponent},
   { path: 'word', component: MiniWordComponent}
 ];
