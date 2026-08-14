@@ -10,7 +10,7 @@ import { Cv } from '../model/cv.model';
 export class CvItem {
   // L'ancienne manière de faire
   @Input({
-    required: true,
+    // required: true,
   })
   cv2!: Cv;
   //State qui représente la partie dynamique de la vue
