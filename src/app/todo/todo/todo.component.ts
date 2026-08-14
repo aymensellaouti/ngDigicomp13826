@@ -21,7 +21,19 @@ export class TodoComponent {
    * @var le todo à ajouter
    */
   todo = signal(new Todo());
-  constructor() {}
+  constructor() {
+    this.todoService.getTodosFromApi()
+    // Je m'inscris au flux
+    .subscribe({
+      next: (data) => {
+        // Ce que je fais en cas de succès
+        console.log(data);
+      },
+      error: (e) => {
+
+      }
+    })
+  }
   addTodo() {
     this.todoService.addTodo(this.todo());
     this.todo.set(new Todo());
