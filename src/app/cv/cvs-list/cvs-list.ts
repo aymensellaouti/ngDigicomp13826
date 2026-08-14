@@ -1,10 +1,11 @@
 import { Component, input, output } from '@angular/core';
 import { Cv } from '../model/cv.model';
 import { CvItem } from "../cv-item/cv-item";
+import { NgClass } from "@angular/common";
 
 @Component({
   selector: 'app-cvs-list',
-  imports: [CvItem],
+  imports: [CvItem, NgClass],
   templateUrl: './cvs-list.html',
   styleUrl: './cvs-list.css',
 })

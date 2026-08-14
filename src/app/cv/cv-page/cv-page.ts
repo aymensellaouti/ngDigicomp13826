@@ -15,6 +15,7 @@ export class CvPage {
     new Cv(1, 'Begin', 'Thierry', 'Ingénieur', '1234', 20, 'rotating_card_profile3.png'),
     new Cv(2, 'Khribech', 'Anass', 'Bibliothècaire', '1234', 20, 'rotating_card_profile.png'),
     new Cv(3, 'Sellaouti', 'Aymen', 'Formateur', '1234', 44, 'rotating_card_profile2.png'),
+    new Cv(4, 'Sellaouti', 'Aymen', 'Formateur', '1234', 44, 'rotating_card_profile2.png'),
   ]);
   /**
    * @var le cv sélectionné

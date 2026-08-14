@@ -1,7 +1,12 @@
 <ol class="list-group">
   @for (cv of cvs(); track cv.id) {
-  <li class="list-group list-group-item">
+  <li class="list-group list-group-item"
+    [ngClass]="{
+      'list-group-item-primary': $odd,
+      'list-group-item-secondary': $even
+    }">
     <app-cv-item [cv]="cv" (selectedCv)="onForwardCv($event)" />
   </li>
   }
 </ol>
+
