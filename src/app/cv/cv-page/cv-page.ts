@@ -1,8 +1,11 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { Cv } from '../model/cv.model';
 import { CvsList } from "../cvs-list/cvs-list";
 import { CvCard } from "../cv-card/cv-card";
 import { CurrencyPipe, DatePipe, UpperCasePipe } from '@angular/common';
+import { LoggerService } from '../../services/logger';
+import { SayHelloService } from '../../services/sayHello.service';
+import { CvService } from '../services/cv-service';
 
 @Component({
   selector: 'app-cv-page',
@@ -13,14 +16,19 @@ import { CurrencyPipe, DatePipe, UpperCasePipe } from '@angular/common';
 export class CvPage {
   //State
   today = new Date();
-  cvs = signal<Cv[]>([
-    new Cv(1, 'Begin', 'Thierry', 'Ingénieur', '1234', 20, 'rotating_card_profile3.png'),
-    new Cv(2, 'Khribech', 'Anass', 'Bibliothècaire', '1234', 20, 'rotating_card_profile.png'),
-    new Cv(3, 'Sellaouti', 'Aymen', 'Formateur', '1234', 44, ''),
-    new Cv(4, 'Sellaouti', 'Aymen', 'Formateur', '1234', 44, '                   '),
-  ]);
-  /**
-   * @var le cv sélectionné
-   */
-  selectedCv = signal<Cv | null>(null)
+  // Ca c'est mal, faut pas le faire
+  // loggerService = new LoggerService();
+  sayHelloService = inject(SayHelloService);
+  cvService = inject(CvService);
+  cvs = this.cvService.getCvs();
+  selectedCv = this.cvService.getSelectedCv();
+
+  loggerService = inject(LoggerService);
+  constructor(
+    // L'ancienne mannière d'injecter ca a changé depuis ng14
+    // public loggerService: LoggerService
+  ) {
+    this.loggerService.log('cc je suis le CvPageComponent');
+    this.sayHelloService.hello();
+  }
 }

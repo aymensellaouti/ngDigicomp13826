@@ -12,8 +12,8 @@ import { NgClass } from "@angular/common";
 export class CvsList {
   cvs = input<Cv[]>([]);
 
-  forwardCv = output<Cv>();
-  onForwardCv(cv: Cv) {
-    this.forwardCv.emit(cv)
-  }
+  // forwardCv = output<Cv>();
+  // onForwardCv(cv: Cv) {
+  //   this.forwardCv.emit(cv)
+  // }
 }
