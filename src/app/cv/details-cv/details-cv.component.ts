@@ -26,10 +26,19 @@ export class DetailsCvComponent {
     // Si je le trouve
     // je le met dans le signal cv
     this.cv.set(this.cvService.findCvById(id));
+
+    this.cvService.getCvsFromApiById(id).subscribe({
+      next: (cv) => {
+        this.cv.set(cv)
+      },
+      error: (e) => {
+        this.router.navigate(['cv']);
+      },
+    });
     // Sinon
-    if (!this.cv())
+    // if (!this.cv())
       // Rediriger vers la liste des cvs (Router qu'il faudra injecter)
-      this.router.navigate(['cv']);
+
   }
   delete() {
     const cv = this.cv();

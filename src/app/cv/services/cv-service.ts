@@ -1,5 +1,8 @@
-import { Injectable, signal } from '@angular/core';
+import { inject, Injectable, signal } from '@angular/core';
 import { Cv } from '../model/cv.model';
+import { Observable } from 'rxjs';
+import { APP_API } from '../../config/app.api';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
@@ -11,9 +14,16 @@ export class CvService {
     new Cv(3, 'Sellaouti', 'Aymen', 'Formateur', '1234', 44, ''),
     new Cv(4, 'Sellaouti', 'Aymen', 'Formateur', '1234', 44, '                   '),
   ]);
-
+  http = inject(HttpClient);
   getCvs() {
     return this.cvs.asReadonly();
+  }
+
+  getCvsFromApi(): Observable<Cv[]> {
+    return this.http.get<Cv[]>(APP_API.cvs);
+  }
+  getCvsFromApiById(id: number): Observable<Cv> {
+    return this.http.get<Cv>(APP_API.cvs + id);
   }
 
   /**

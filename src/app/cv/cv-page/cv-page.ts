@@ -23,7 +23,7 @@ export class CvPage {
   sayHelloService = inject(SayHelloService);
   cvService = inject(CvService);
   toastr = inject(ToastrService);
-  cvs = this.cvService.getCvs();
+  cvs = signal<Cv[]>([]);
   selectedCv = this.cvService.getSelectedCv();
 
   loggerService = inject(LoggerService);
@@ -34,5 +34,16 @@ export class CvPage {
     this.loggerService.log('cc je suis le CvPageComponent');
     this.sayHelloService.hello();
     this.toastr.info("Bien venu dans notre CvTech :)");
+    this.cvService.getCvsFromApi().subscribe({
+      next: (cvs) => {
+        this.cvs.set(cvs);
+      },
+      error: (e) => {
+        const fakeCvsSignal = this.cvService.getCvs();
+        const fakeCvs = fakeCvsSignal();
+        this.cvs.set(fakeCvs);
+        this.toastr.error("Veuillez contacter l'admin il y a un pbm les données sont fictives")
+      }
+    })
   }
 }
