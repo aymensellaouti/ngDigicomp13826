@@ -26,6 +26,7 @@ export class CvItem {
     this.selectedCv.emit(this.cv());
     // this.selectedCv2.emit(cv2);
   }
+  // Définit le comportement
   // highlight() {
   //   this.bgc == 'white' ? this.bgc = 'gold' : this.bgc = 'white';
   // }

@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { NgStyle } from "@angular/common";
+import { Highlight } from "../../directives/highlight";
 
 @Component({
   selector: 'app-color',
   // On supprime l'import et on passe a style a partir d'angular 19
-  imports: [NgStyle],
+  imports: [NgStyle, Highlight],
   templateUrl: './color.html',
   styleUrl: './color.css',
 })
